@@ -1,0 +1,50 @@
+{
+  "name": "app-manifest-check",
+  "version": "1.0.0",
+  "description": "Check the settings files of a mobile app before a store release for risky configuration, by the OWASP MASVS categories: AndroidManifest.xml, the network security config and the Gradle build file for Android, Info.plist and entitlements for iOS. Debuggable builds, backups, plain HTTP, App Transport Security, exported components, permissions, target SDK, usage descriptions. Reads files only; never runs Gradle, Xcode or a build, no dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "app-manifest-check": "bin/app-manifest-check.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage \"test/*.test.js\"",
+    "check": "node tools/check.mjs",
+    "example": "node tools/example.mjs"
+  },
+  "keywords": [
+    "android",
+    "ios",
+    "mobile",
+    "security",
+    "masvs",
+    "owasp",
+    "androidmanifest",
+    "info-plist",
+    "app-transport-security",
+    "sarif",
+    "cli"
+  ],
+  "author": "INNERLUXES <info@innerluxes.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INNERLUXES/app-manifest-check.git"
+  },
+  "homepage": "https://innerluxes.dev/application/mobile/development"
+}

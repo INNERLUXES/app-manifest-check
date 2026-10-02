@@ -1,0 +1,10 @@
+# Every change is reviewed by a maintainer.
+* @innerluxesdev
+
+# The XML and plist readers, the Gradle patterns and the checks decide every line of the report; changes need extra care.
+/src/xml.js @innerluxesdev
+/src/plist.js @innerluxesdev
+/src/gradle.js @innerluxesdev
+/src/android.js @innerluxesdev
+/src/ios.js @innerluxesdev
+/src/check.js @innerluxesdev

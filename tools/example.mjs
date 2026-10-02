@@ -1,5 +1,6 @@
 // Runs the README examples and checks that they report what the README shows.
 
+import { readFile } from 'node:fs/promises';
 import { main } from '../src/index.js';
 
 async function run(argv) {
@@ -72,6 +73,11 @@ expect('clean orders app with --fail-on warning', clean, 0, [
   'INFO     exported-without-permission (MASVS-PLATFORM)  examples/android/clean/AndroidManifest.xml:17',
   'GATE: PASS (--fail-on warning)'
 ], ['ERROR', 'WARNING', 'note:']);
+
+// The README shows both runs as they are printed.
+const readme = (await readFile(new URL('../README.md', import.meta.url), 'utf8')).split('\r\n').join('\n');
+if (!readme.includes(risky.out)) problems.push('README: the sample output of the risky app differs from a real run');
+if (!readme.includes(clean.out)) problems.push('README: the sample output of the clean app differs from a real run');
 
 let sarif = '';
 const sarifCode = await main([...RISKY, '--format', 'sarif'], { out: (t) => { sarif += t; }, err: (t) => process.stderr.write(t) });
